@@ -2,6 +2,7 @@ import './Form.css'
 import TextField from '../TextField';
 import Dropdown from '../Dropdown';
 import Button from '../Button';
+import { useState } from 'react';
 
 const Form = () => {
 
@@ -15,15 +16,49 @@ const Form = () => {
         'Inovação e Gestão'
     ]
 
+    const [nome, setNome] = useState('')
+    const [cargo, setCargo] = useState('')
+    const [imagem, setImagem] = useState('')
+    const [time, setTime] = useState('')
+
+    const onSave = (event) => {
+        event.preventDefault()
+        console.log('Form submetido. => ', nome, cargo, imagem, time)
+    }
+
     return (
         <section className='form'>
-            <form>
+            <form onSubmit={onSave}>
                 <h2>Preencha os dados para criar o card do colaborador</h2>
-                <TextField label="Nome" placeholder="Digite seu nome"/>
-                <TextField label="Cargo" placeholder="Digite seu cargo"/> 
-                <TextField label="Imagem" placeholder="Digite o endereço da imagem" /> 
-                <Dropdown label="Time" itens={times} />
-                <Button>Criar Card</Button>
+                <TextField
+                    required={true}
+                    label="Nome"
+                    placeholder="Digite seu nome"
+                    value={nome}
+                    onChange={value => setNome(value)}
+                />
+                <TextField
+                    required={true} 
+                    label="Cargo" 
+                    placeholder="Digite seu cargo"
+                    onChange={value => setCargo(value)}
+                />
+                <TextField
+                    required={true}
+                    label="Imagem"
+                    placeholder="Digite o endereço da imagem"
+                    onChange={value => setImagem(value)}
+                /> 
+                <Dropdown
+                    required={true}
+                    label="Time"
+                    itens={times}
+                    value={time}
+                    onChange={value => setTime(value)}
+                />
+                <Button>
+                    Criar Card
+                </Button>
             </form>
         </section>
 
