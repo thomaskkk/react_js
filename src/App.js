@@ -43,20 +43,25 @@ function App() {
         }
     ]
     
-    const [colaboradores, setColaboradores] = useState([])
+    const [coworkers, setcoworkers] = useState([])
 
-    const aoNovoColaboradorAdicionado = (colaborador) => {
-        console.log(colaborador)
-        setColaboradores([...colaboradores, colaborador])
-        console.log(colaboradores)
+    const addCoworker = (coworker) => {
+        console.log(coworker)
+        setcoworkers([...coworkers, coworker])
+        console.log(coworkers)
     }
 
     return (
         <div className="App">
             <Banner />
-            <Form teams={teams.map(team => team.name)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)} />
-            {teams.map(team => <Team key={team.name} name={team.name} secondaryColor={team.secondaryColor} primaryColor={team.primaryColor} />)}
-
+            <Form teams={teams.map(team => team.name)} recordCoworker={coworker => addCoworker(coworker)} />
+            {teams.map(team => <Team
+                key={team.name}
+                name={team.name}
+                secondaryColor={team.secondaryColor}
+                primaryColor={team.primaryColor}
+                coworkers={coworkers.filter(coworker => coworker.team === team.name)}
+            />)}
         </div>
     );
 }

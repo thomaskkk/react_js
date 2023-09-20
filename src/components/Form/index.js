@@ -6,19 +6,23 @@ import { useState } from 'react';
 
 const Form = (props) => {
 
-    const [nome, setNome] = useState('')
-    const [cargo, setCargo] = useState('')
-    const [imagem, setImagem] = useState('')
-    const [time, setTime] = useState('')
+    const [name, setName] = useState('')
+    const [role, setRole] = useState('')
+    const [image, setImage] = useState('')
+    const [team, setTeam] = useState('')
 
     const onSave = (event) => {
         event.preventDefault()
-        props.aoColaboradorCadastrado({
-            nome,
-            cargo,
-            imagem,
-            time
+        props.recordCoworker({
+            name,
+            role,
+            image,
+            team
         })
+        setName('')
+        setRole('')
+        setImage('')
+        setTeam('')
     }
 
     return (
@@ -29,27 +33,29 @@ const Form = (props) => {
                     required={true}
                     label="Nome"
                     placeholder="Digite seu nome"
-                    value={nome}
-                    onChange={value => setNome(value)}
+                    value={name}
+                    onChange={value => setName(value)}
                 />
                 <TextField
                     required={true} 
                     label="Cargo" 
                     placeholder="Digite seu cargo"
-                    onChange={value => setCargo(value)}
+                    value={role}
+                    onChange={value => setRole(value)}
                 />
                 <TextField
                     required={true}
                     label="Imagem"
                     placeholder="Digite o endereço da imagem"
-                    onChange={value => setImagem(value)}
+                    value={image}
+                    onChange={value => setImage(value)}
                 /> 
                 <Dropdown
                     required={true}
                     label="Time"
                     itens={props.teams}
-                    value={time}
-                    onChange={value => setTime(value)}
+                    value={team}
+                    onChange={value => setTeam(value)}
                 />
                 <Button>
                     Criar Card
