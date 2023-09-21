@@ -53,7 +53,7 @@ function App() {
 
     return (
         <div className="App">
-            <Banner />
+            <Banner imgAddress='/img/banner.png' altText='O banner principal da página Organo' />
             <Form teams={teams.map(team => team.name)} recordCoworker={coworker => addCoworker(coworker)} />
             {teams.map(team => <Team
                 key={team.name}
