@@ -1,6 +1,13 @@
 import './Card.css'
 
-const Card = (props) => {
+interface CardProps {
+    name: string
+    image: string
+    role: string
+    bgColor: string
+}
+
+const Card = (props: CardProps) => {
     return (
         <div className='card'>
             <div className='header' style={{ backgroundColor: props.bgColor }}>
