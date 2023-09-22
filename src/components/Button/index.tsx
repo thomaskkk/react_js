@@ -1,10 +1,8 @@
 import { ReactElement } from 'react'
 import './Button.css'
 
-import React from 'react'
-
 interface ButtonProps {
-    children: ReactElement
+    children: ReactElement | string
 }
 
 const Button = (props: ButtonProps) => {

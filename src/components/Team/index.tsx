@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import { ICoworker } from '../../shared/interfaces/ICoworker'
 import Card from '../Card'
 import './Team.css'
@@ -26,7 +27,7 @@ const Team = (props: TeamProps) => {
                     />)}
             </div>
         </section>
-        : ''
+        : <></>
     )
 }
 

@@ -5,12 +5,12 @@ interface TextFieldProps {
     onChange: (valor: string) => void
     label: string
     value: string
-    required: boolean
     placeholder: string
+    required?: boolean
 
 } 
 
-const TextField = ({ onChange, label, value, required, placeholder }: TextFieldProps) => {
+const TextField = ({ onChange, label, value, placeholder, required = false }: TextFieldProps) => {
 
     const onType = (event: React.ChangeEvent<HTMLInputElement>) => {
         onChange(event.target.value)

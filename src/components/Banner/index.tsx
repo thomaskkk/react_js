@@ -1,13 +1,9 @@
 import './Banner.css'
 
-import React from 'react'
-
-
 interface BannerProps {
     imgAddress: string
     altText?: string
 }
-
 
 const Banner = ({ imgAddress, altText } :BannerProps) => {
     return (

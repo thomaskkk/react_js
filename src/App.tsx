@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Banner from './components/Banner';
 import Form from './components/Form';
 import Team from './components/Team';
+import { ICoworker } from './shared/interfaces/ICoworker';
 
 function App() {
 
@@ -43,11 +44,11 @@ function App() {
         }
     ]
     
-    const [coworkers, setcoworkers] = useState([])
+    const [coworkers, setCoworkers] = useState<ICoworker[]>([])
 
-    const addCoworker = (coworker) => {
+    const addCoworker = (coworker: ICoworker) => {
         console.log(coworker)
-        setcoworkers([...coworkers, coworker])
+        setCoworkers([...coworkers, coworker])
         console.log(coworkers)
     }
 
