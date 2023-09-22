@@ -3,15 +3,21 @@ import TextField from '../TextField';
 import Dropdown from '../Dropdown';
 import Button from '../Button';
 import { useState } from 'react';
+import { ICoworker } from '../../shared/interfaces/ICoworker';
 
-const Form = (props) => {
+interface FormProps {
+    recordCoworker: (coworker: ICoworker) => void
+    teams: string[]
+}
+
+const Form = (props: FormProps) => {
 
     const [name, setName] = useState('')
     const [role, setRole] = useState('')
     const [image, setImage] = useState('')
     const [team, setTeam] = useState('')
 
-    const onSave = (event) => {
+    const onSave = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         props.recordCoworker({
             name,

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Banner from './components/Banner';
 import Form from './components/Form';
 import Team from './components/Team';
+import { ICoworker } from './shared/interfaces/ICoworker';
 
 function App() {
 
@@ -43,17 +44,17 @@ function App() {
         }
     ]
     
-    const [coworkers, setcoworkers] = useState([])
+    const [coworkers, setCoworkers] = useState<ICoworker[]>([])
 
-    const addCoworker = (coworker) => {
+    const addCoworker = (coworker: ICoworker) => {
         console.log(coworker)
-        setcoworkers([...coworkers, coworker])
+        setCoworkers([...coworkers, coworker])
         console.log(coworkers)
     }
 
     return (
         <div className="App">
-            <Banner />
+            <Banner imgAddress='/img/banner.png' altText='O banner principal da página Organo' />
             <Form teams={teams.map(team => team.name)} recordCoworker={coworker => addCoworker(coworker)} />
             {teams.map(team => <Team
                 key={team.name}
